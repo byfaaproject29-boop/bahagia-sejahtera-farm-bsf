@@ -1,0 +1,385 @@
+# Wireframe dan Struktur Halaman — Domba Digital
+
+Berikut rancangan awal **website responsif** untuk dua role: **Owner** dan **Mitra**. Program **Mudharabah** dan **Ijarah** dipisahkan di navigasi, pengajuan, transaksi, dan laporan.
+
+## 1. Peta halaman
+
+```text
+Publik
+├── Beranda
+├── Daftar Program
+│   ├── Detail Program Mudharabah
+│   └── Detail Program Ijarah
+├── Tentang / Cara Kerja
+├── FAQ
+├── Masuk
+└── Daftar
+
+Area Owner
+├── Dashboard
+├── Pengajuan Mitra
+├── Program
+│   ├── Daftar Program
+│   ├── Buat / Edit Program
+│   └── Detail Program
+├── Data Domba
+│   ├── Daftar Domba
+│   ├── Tambah / Edit Domba
+│   └── Detail Domba
+├── Transaksi
+├── Laporan
+├── Audit Aktivitas
+└── Pengaturan
+
+Area Mitra
+├── Dashboard
+├── Jelajahi Program
+├── Pengajuan Saya
+├── Partisipasi
+│   ├── Detail Mudharabah
+│   └── Detail Ijarah / Domba Saya
+├── Transaksi Saya
+├── Laporan Saya
+└── Profil & Keamanan
+```
+
+## 2. Kerangka visual utama
+
+### Desktop
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ Logo Domba Digital       Beranda  Program  Tentang  Profil  │
+├───────────────┬─────────────────────────────────────────────┤
+│ Sidebar       │ Judul halaman                 [Aksi utama]  │
+│               ├─────────────────────────────────────────────┤
+│ Dashboard     │ Konten halaman                              │
+│ Program       │                                             │
+│ Domba         │                                             │
+│ Transaksi     │                                             │
+│ Laporan       │                                             │
+│               │                                             │
+│ Bantuan       │                                             │
+└───────────────┴─────────────────────────────────────────────┘
+```
+
+- **Header:** logo, akses ke bantuan, notifikasi, dan menu akun.
+- **Sidebar:** menu sesuai role.
+- **Konten utama:** judul, deskripsi singkat, aksi utama, lalu tabel/kartu.
+- **Mobile:** sidebar menjadi menu hamburger atau navigasi bawah; tabel berubah menjadi kartu agar mudah dibaca.
+
+## 3. Wireframe halaman publik
+
+### Beranda
+
+```text
+┌─────────────────────────────────────────────┐
+│ Logo                  Program  Masuk  Daftar│
+├─────────────────────────────────────────────┤
+│ Kelola usaha domba dengan catatan yang jelas│
+│ Penjelasan singkat cara kerja aplikasi      │
+│ [Lihat Program]        [Pelajari Cara Kerja]│
+├─────────────────────────────────────────────┤
+│ Dua jenis layanan                           │
+│ ┌─────────────────┐  ┌───────────────────┐ │
+│ │ Mudharabah      │  │ Ijarah            │ │
+│ │ Modal usaha;    │  │ Jasa perawatan    │ │
+│ │ hasil tidak     │  │ domba milik mitra │ │
+│ │ dijamin tetap   │  │ dengan biaya jelas│ │
+│ │ [Detail]        │  │ [Detail]           │ │
+│ └─────────────────┘  └───────────────────┘ │
+├─────────────────────────────────────────────┤
+│ Cara kerja  • Transparansi • FAQ • Kontak   │
+└─────────────────────────────────────────────┘
+```
+
+**Isi penting:** terangkan dengan bahasa sederhana bahwa Mudharabah adalah kerja sama usaha dan memiliki risiko; Ijarah adalah layanan perawatan dengan biaya jasa, bukan investasi atau bagi hasil.
+
+### Daftar program
+
+Setiap kartu program menampilkan:
+- Jenis akad: **Mudharabah** atau **Ijarah**.
+- Nama program dan ringkasan tujuan.
+- Periode dan status ketersediaan.
+- Untuk Mudharabah: nisbah dan ringkasan cara menghitung laba yang disepakati.
+- Untuk Ijarah: layanan, biaya, periode, dan kapasitas.
+- Tautan ke risiko dan ketentuan lengkap.
+- Tombol **Lihat Detail**.
+
+Jangan menampilkan proyeksi laba seolah-olah hasil yang pasti.
+
+### Detail program
+
+```text
+┌─────────────────────────────────────────────┐
+│ Breadcrumb > Program > Nama Program         │
+├─────────────────────────────────────────────┤
+│ Nama program          [Jenis akad]           │
+│ Ringkasan dan status                         │
+├──────────────────────┬──────────────────────┤
+│ Tentang program      │ Ringkasan ketentuan  │
+│ Periode              │ Biaya/modal          │
+│ Tujuan               │ Risiko               │
+│ Cara kerja           │ [Ajukan]             │
+├──────────────────────┴──────────────────────┤
+│ Ketentuan akad lengkap                       │
+│ Risiko dan penanganan sakit/kematian         │
+│ FAQ                                         │
+└─────────────────────────────────────────────┘
+```
+
+Sebelum tombol pengajuan aktif, mitra harus membuka dan menyetujui ketentuan serta versi akad yang berlaku.
+
+## 4. Wireframe login dan pendaftaran
+
+### Masuk
+
+```text
+┌─────────────────────────────────────┐
+│ Logo                                │
+│ Selamat datang kembali              │
+│ Email                               │
+│ Kata sandi                          │
+│ [ ] Ingat saya   Lupa kata sandi?   │
+│ [Masuk]                             │
+│ Belum punya akun? Daftar            │
+└─────────────────────────────────────┘
+```
+
+### Daftar mitra
+
+```text
+┌─────────────────────────────────────┐
+│ Buat akun mitra                     │
+│ Nama lengkap                        │
+│ Email                               │
+│ Nomor telepon                       │
+│ Kata sandi                          │
+│ Konfirmasi kata sandi               │
+│ [ ] Saya setuju dengan kebijakan    │
+│ [Daftar]                            │
+└─────────────────────────────────────┘
+```
+
+Akun baru berstatus **menunggu verifikasi** bila owner perlu menyetujui pendaftaran.
+
+## 5. Area Owner
+
+### Dashboard Owner
+
+```text
+┌──────────────────────────────────────────────────────┐
+│ Dashboard Owner                     [Tambah Program] │
+├──────────────────────────────────────────────────────┤
+│ [Domba aktif] [Mitra aktif] [Pengajuan baru] [Program]│
+├───────────────────────────┬──────────────────────────┤
+│ Pengajuan terbaru         │ Transaksi terbaru        │
+│ Nama | Jenis | Tanggal    │ Tanggal | Kategori | Rp   │
+│ [Lihat semua]             │ [Lihat semua]            │
+├───────────────────────────┴──────────────────────────┤
+│ Aktivitas domba terbaru       Laporan perlu diterbitkan│
+└──────────────────────────────────────────────────────┘
+```
+
+Gunakan kartu angka untuk ringkasan, tetapi jumlah saldo/laba hanya ditampilkan jika datanya memiliki definisi dan sumber yang jelas.
+
+### Pengajuan Mitra
+
+```text
+┌──────────────────────────────────────────────────────┐
+│ Pengajuan Mitra                                      │
+│ [Semua] [Menunggu] [Disetujui] [Ditolak]             │
+├──────────────────────────────────────────────────────┤
+│ Mitra | Program | Jenis akad | Tanggal | Status | ...│
+└──────────────────────────────────────────────────────┘
+```
+
+Detail pengajuan menampilkan profil yang relevan, program yang dipilih, persetujuan akad, dan tombol tindakan **Setujui** atau **Tolak**. Tindakan harus meminta konfirmasi dan dicatat dalam audit log.
+
+### Manajemen program
+
+Form program menggunakan pilihan jenis akad lebih dulu:
+
+```text
+Jenis program: ( ) Mudharabah  ( ) Ijarah
+```
+
+**Jika Mudharabah**, form menampilkan:
+- Tujuan dan penggunaan modal.
+- Periode usaha.
+- Nisbah para pihak.
+- Biaya yang boleh diperhitungkan.
+- Dasar perhitungan laba.
+- Risiko dan aturan pelaporan.
+
+**Jika Ijarah**, form menampilkan:
+- Layanan perawatan.
+- Periode dan biaya jasa.
+- Jadwal pembayaran.
+- Layanan yang termasuk/tidak termasuk.
+- Biaya tambahan dan persetujuan biaya.
+- Prosedur kondisi darurat.
+
+Sistem tidak mengizinkan satu program memiliki kedua jenis akad sekaligus.
+
+### Data Domba
+
+```text
+┌──────────────────────────────────────────────────────┐
+│ Data Domba                          [Tambah Domba]   │
+│ Cari tag/nama  [Status ▼] [Lokasi ▼]                 │
+├──────────────────────────────────────────────────────┤
+│ Foto | Tag | Jenis | Bobot terakhir | Status | Aksi  │
+└──────────────────────────────────────────────────────┘
+```
+
+Detail domba berisi:
+- Identitas/tag dan foto.
+- Pemilik atau keterkaitan program sesuai akad.
+- Lokasi dan status.
+- Riwayat bobot.
+- Riwayat kesehatan dan perawatan.
+- Biaya terkait.
+- Aktivitas perubahan data.
+
+### Transaksi
+
+```text
+┌──────────────────────────────────────────────────────┐
+│ Transaksi                           [Tambah transaksi]│
+│ [Jenis akad ▼] [Tanggal ▼] [Status ▼] [Cari]         │
+├──────────────────────────────────────────────────────┤
+│ Tanggal | Program | Kategori | Jumlah | Bukti | Status│
+└──────────────────────────────────────────────────────┘
+```
+
+Setiap transaksi mengikat pada program/akad yang tepat. Bukti transaksi dapat dibuka oleh pihak yang berhak. Untuk MVP, verifikasi bisa dilakukan manual oleh owner.
+
+### Laporan Owner
+
+- Pilih program dan periode.
+- Ringkasan pemasukan, biaya, penjualan, serta laba/rugi sesuai definisi program.
+- Untuk Mudharabah: rincian perhitungan laba dan pembagian nisbah.
+- Untuk Ijarah: daftar layanan, biaya, dan kondisi domba.
+- Pratinjau sebelum menerbitkan laporan kepada mitra.
+
+### Audit Aktivitas
+
+Tabel audit memuat:
+- Waktu perubahan.
+- Pengguna yang melakukan perubahan.
+- Jenis data dan identitasnya.
+- Nilai sebelum dan sesudah.
+- Alasan perubahan, bila diwajibkan.
+
+Catatan audit sebaiknya tidak dapat diedit atau dihapus oleh pengguna biasa.
+
+## 6. Area Mitra
+
+### Dashboard Mitra
+
+```text
+┌──────────────────────────────────────────────────────┐
+│ Dashboard Mitra                 [Jelajahi Program]  │
+├──────────────────────────────────────────────────────┤
+│ [Pengajuan berjalan] [Program aktif] [Laporan baru]  │
+├───────────────────────────┬──────────────────────────┤
+│ Partisipasi saya          │ Aktivitas/laporan terbaru│
+│ Program | Jenis | Status  │ Tanggal | Ringkasan      │
+├───────────────────────────┴──────────────────────────┤
+│ Informasi penting: risiko, pengajuan, atau tagihan   │
+└──────────────────────────────────────────────────────┘
+```
+
+### Pengajuan Saya
+
+Mitra dapat melihat status dan langkah berikutnya:
+
+```text
+Dikirim → Ditinjau Owner → Disetujui → Menunggu transaksi
+                                  └── atau Ditolak
+```
+
+Setiap status menampilkan tanggal dan keterangan. Jangan menampilkan pengajuan “aktif” sebagai akad berjalan sebelum persetujuan dan proses yang disyaratkan selesai.
+
+### Detail partisipasi Mudharabah
+
+- Ringkasan akad dan versi dokumen yang disetujui.
+- Modal yang tercatat dan status verifikasinya.
+- Laporan usaha dan transaksi terkait.
+- Rincian laba/rugi yang sudah direalisasikan.
+- Nisbah yang disepakati.
+- Risiko dan status usaha.
+- Riwayat pembagian hasil, bila ada.
+
+### Detail partisipasi Ijarah
+
+- Identitas domba milik mitra.
+- Periode dan layanan yang disepakati.
+- Biaya jasa dan status pembayaran.
+- Riwayat bobot, kesehatan, dan perawatan.
+- Catatan biaya tambahan dan persetujuan mitra.
+- Status kontrak dan opsi mengajukan perpanjangan.
+
+### Laporan Saya
+
+Mitra hanya melihat laporan yang terkait dengan akun dan akadnya sendiri. Laporan dapat dibaca di web dan, bila fitur tersedia, diunduh sebagai PDF.
+
+## 7. Navigasi mobile
+
+Navigasi bawah yang disarankan untuk mitra:
+
+```text
+[Beranda] [Program] [Partisipasi] [Laporan] [Profil]
+```
+
+Untuk owner, gunakan menu hamburger atau navigasi bawah ringkas:
+
+```text
+[Dashboard] [Pengajuan] [Domba] [Transaksi] [Menu]
+```
+
+Menu tambahan memuat Program, Laporan, Audit Aktivitas, dan Pengaturan. Form panjang dibagi menjadi beberapa langkah agar nyaman di layar kecil.
+
+## 8. Alur utama
+
+### Mudharabah
+
+```text
+Daftar/login
+→ Buka detail program
+→ Baca risiko dan akad
+→ Ajukan partisipasi
+→ Owner meninjau
+→ Persetujuan dan pencatatan transaksi
+→ Laporan usaha
+→ Perhitungan hasil terealisasi sesuai nisbah
+```
+
+### Ijarah
+
+```text
+Daftar/login
+→ Buka detail layanan
+→ Baca ruang lingkup dan biaya
+→ Ajukan penitipan
+→ Owner menyetujui dan mengidentifikasi domba
+→ Pencatatan layanan dan kondisi
+→ Laporan perawatan
+→ Akad selesai atau diajukan perpanjangan
+```
+
+## 9. Urutan pengerjaan antarmuka MVP
+
+1. Login, daftar, dan pemulihan akun.
+2. Layout navigasi untuk Owner dan Mitra.
+3. Dashboard masing-masing role.
+4. Daftar dan detail program.
+5. Form pengajuan dan layar persetujuan akad.
+6. Daftar/detail domba.
+7. Transaksi dan unggah bukti.
+8. Laporan.
+9. Audit aktivitas.
+10. Uji tampilan di ponsel, tablet, dan desktop.
+
+**Catatan produk:** sebelum dipublikasikan, konten akad, definisi biaya/laba, risiko, serta prosedur sakit atau kematian domba perlu ditinjau oleh ahli fikih muamalah dan penasihat hukum/keuangan.
